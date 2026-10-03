@@ -2894,7 +2894,7 @@ Hide/Show table of contents
 
    **[⬆ Back to Top](#table-of-contents)**
 
-161. ### Defference between count and for_each?
+161. ### Difference between count and for_each?
 
     'Count' is index-based and uses a number/list, with instances identified by count.index, best for identical/similar resources.
     'for_each' is key-based and uses a map/set, with instances identified by each.key, best for distinct resources with stable identities.
