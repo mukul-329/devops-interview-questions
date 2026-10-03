@@ -206,7 +206,7 @@ Hide/Show table of contents
 | 160 | [What is Infrastructure Drift?](#what-is-infrastructure-drift) |
 |     | **Terraform** |
 | 161 | [Defference between count and for_each?](#defference-between-count-and-for_each) |
-| 162 | [How to resolve Terraform State if it's get locked ?](#terraform-state-lock-conflict)
+| 162 | [How to resolve Terraform State if it gets locked ?](#How-to-resolve-Terraform-State-if-it-gets-locked)
 | 163 | [Terraform apply failed halfway, How do you resolve it ?](#terraform-aaply-failed-halfway)
 | 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#Terraform-managed-resource-changed-manually)
 
@@ -2901,7 +2901,7 @@ Hide/Show table of contents
      
    **[⬆ Back to Top](#table-of-contents)**
     
-162. ### How to resolve Terraform State if it's get locked ?
+162. ### How to resolve Terraform State if it gets locked ?
 
     First, check whether another Terraform process is using the state. If the lock is stale, use the lock ID from the error message with terraform force-unlock <LOCK_ID>. Never force-unlock while another Terraform operation is running, as it can cause state corruption.
 
