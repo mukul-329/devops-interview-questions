@@ -205,10 +205,10 @@ Hide/Show table of contents
 | 159 | [What is Canary Analysis?](#what-is-canary-analysis) |
 | 160 | [What is Infrastructure Drift?](#what-is-infrastructure-drift) |
 |     | **Terraform** |
-| 161 | [Defference between count and for_each?](#defference-between-count-and-for_each) |
-| 162 | [How to resolve Terraform State if it gets locked ?](#How-to-resolve-Terraform-State-if-it-gets-locked)
-| 163 | [Terraform apply failed halfway, How do you resolve it ?](#terraform-aaply-failed-halfway)
-| 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#Terraform-managed-resource-changed-manually)
+| 161 | [Difference between count and for_each?](#difference-between-count-and-for_each) |
+| 162 | [How to resolve Terraform State if it gets locked?](#how-to-resolve-terraform-state-if-it-gets-locked) |
+| 163 | [Terraform apply failed halfway, How do you resolve it?](#terraform-apply-failed-halfway-how-do-you-resolve-it) |
+| 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#a-production-resource-was-manually-changed-during-an-emergency-terraform-now-wants-to-revert-the-change-what-would-you-do) |
 
 
 ## Core DevOps Concepts
@@ -2896,8 +2896,8 @@ Hide/Show table of contents
 
 161. ### Defference between count and for_each?
 
-    Count is index-based and uses a number/list, with instances identified by count.index, best for identical/similar resources.
-    for_each is key-based and uses a map/set, with instances identified by each.key, best for distinct resources with stable identities.
+    'Count' is index-based and uses a number/list, with instances identified by count.index, best for identical/similar resources.
+    'for_each' is key-based and uses a map/set, with instances identified by each.key, best for distinct resources with stable identities.
      
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2920,7 +2920,7 @@ Hide/Show table of contents
 
    **[⬆ Back to Top](#table-of-contents)**
     
-165. ### A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?
+164. ### A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?
 
     - First, verify why the manual change was made and whether it is still required for production.
     - If the change is temporary, coordinate with the team and decide when it can be reverted.
