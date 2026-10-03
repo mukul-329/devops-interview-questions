@@ -204,6 +204,12 @@ Hide/Show table of contents
 | 158 | [What is a Self-Healing System?](#what-is-a-self-healing-system) |
 | 159 | [What is Canary Analysis?](#what-is-canary-analysis) |
 | 160 | [What is Infrastructure Drift?](#what-is-infrastructure-drift) |
+|     | **Terraform** |
+| 161 | [Defference between count and for_each?](#defference-between-count-and-for_each) |
+| 162 | [How to resolve Terraform State if it's get locked ?](#terraform-state-lock-conflict)
+| 163 | [Terraform apply failed halfway, How do you resolve it ?](#terraform-aaply-failed-halfway)
+| 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#Terraform-managed-resource-changed-manually)
+
 
 ## Core DevOps Concepts
 
@@ -2886,4 +2892,42 @@ Hide/Show table of contents
 
     Infrastructure Drift occurs when the actual state of infrastructure diverges from the desired state defined in code, often due to manual changes or configuration errors. Tools like Terraform and Ansible can help detect and correct drift.
 
-    **[⬆ Back to Top](#table-of-contents)**
+   **[⬆ Back to Top](#table-of-contents)**
+
+161. ### Defference between count and for_each?
+
+    Count is index-based and uses a number/list, with instances identified by count.index, best for identical/similar resources.
+    for_each is key-based and uses a map/set, with instances identified by each.key, best for distinct resources with stable identities.
+     
+   **[⬆ Back to Top](#table-of-contents)**
+    
+162. ### How to resolve Terraform State if it's get locked ?
+
+    First, check whether another Terraform process is using the state. If the lock is stale, use the lock ID from the error message with terraform force-unlock <LOCK_ID>. Never force-unlock while another Terraform operation is running, as it can cause state corruption.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+163. ### Terraform apply failed halfway, How do you resolve it ?
+
+    - Check the error message and identify which resource caused the terraform apply to fail.
+    - Terraform usually updates the state for resources that were successfully created/modified before the failure.
+    - Run terraform plan to see the current state vs. actual infrastructure.
+    - If required, verify the affected resources directly in AWS/Azure.
+    - Fix the root cause of the failure, such as permissions, dependency, quota, or configuration issue.
+    - Run terraform plan again and review the proposed changes carefully.
+    - If the plan looks correct, run terraform apply again.
+    - Avoid manually deleting resources or modifying the state unless necessary; use terraform import or state commands when state reconciliation is required.
+
+   **[⬆ Back to Top](#table-of-contents)**
+    
+165. ### A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?
+
+    - First, verify why the manual change was made and whether it is still required for production.
+    - If the change is temporary, coordinate with the team and decide when it can be reverted.
+    - If the change is required permanently, update the Terraform configuration to match the desired production state.
+    - Run terraform plan and verify that Terraform no longer wants to revert the change.
+    - If the manual change should be reverted, let Terraform apply the original configuration.
+    - Document the emergency change so future deployments don't unexpectedly overwrite it.
+    - Avoid using ignore_changes just to hide the drift unless the attribute is intentionally managed outside Terraform.
+
+   **[⬆ Back to Top](#table-of-contents)**
