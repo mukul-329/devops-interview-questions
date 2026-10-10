@@ -3107,7 +3107,7 @@ First, I would not immediately run `terraform apply` because replacing a product
 
 I would follow these steps:
 
-1. **Inspect the plan:** Run `terraform plan` and identify why Terraform wants to replace the server. Look for the `-/+` replacement indicator.
+1. **Inspect the plan:** Run `terraform plan` and identify why Terraform wants to replace the server. Look for either `-/+` or `+/-`, which indicate replacement. The order shows whether Terraform will destroy the existing resource before creating the replacement or create the replacement before destroying the existing resource.
 2. **Check configuration changes:** Review recent changes to arguments such as the AMI, subnet, instance type, or other replacement-triggering attributes.
 3. **Check immutable attributes:** Some resource attributes cannot be updated in place and require replacement.
 4. **Check state and real infrastructure:** Compare the Terraform configuration and state with the actual resource in the cloud.
@@ -3227,7 +3227,6 @@ Terraform generates one `ingress` block for each item in `var.ingress_rules`.
 177. ### How do you delete a specific resource while running Terraform Apply?
 
 The preferred approach is to remove the resource from the Terraform configuration when you genuinely want to delete it, then review and apply the plan.
-
 If I want to destroy only a specific resource, I can use the `-target` option:
 
 ```bash
@@ -3235,9 +3234,7 @@ terraform plan -destroy -target=aws_instance.web
 terraform destroy -target=aws_instance.web
 ```
 
-I would carefully review the plan because Terraform may also need to destroy dependent resources.
-
-The `-target` option should generally be reserved for exceptional situations, not routine infrastructure management.
+The `-target` option should generally be reserved for exceptional situations, not routine infrastructure management. I would carefully review the plan because Terraform may also need to destroy dependent resources.
 
 **[⬆ Back to Top](#table-of-contents)**
 
