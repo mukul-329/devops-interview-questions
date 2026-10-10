@@ -209,6 +209,28 @@ Hide/Show table of contents
 | 162 | [How to resolve Terraform State if it gets locked?](#how-to-resolve-terraform-state-if-it-gets-locked) |
 | 163 | [Terraform apply failed halfway, How do you resolve it?](#terraform-apply-failed-halfway-how-do-you-resolve-it) |
 | 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#a-production-resource-was-manually-changed-during-an-emergency-terraform-now-wants-to-revert-the-change-what-would-you-do) |
+| 165 | [What is a Race Condition?](#what-is-a-race-condition) |
+| 166 | [What is Terraform State Corruption?](#what-is-terraform-state-corruption) |
+| 167 | [Why do we store Terraform state remotely?](#why-do-we-store-terraform-state-remotely) |
+| 168 | [What is the use of DynamoDB when storing the state file remotely?](#what-is-the-use-of-dynamodb-when-storing-the-state-file-remotely) |
+| 169 | [What are Provisioners and why are they not widely used?](#what-are-provisioners-and-why-are-they-not-widely-used) |
+| 170 | [What is the difference between running Terraform and running it with Ansible?](#what-is-the-difference-between-running-terraform-and-running-it-with-ansible) |
+| 171 | [Where can we store the state file remotely, and why don't we store it on GitHub?](#where-can-we-store-the-state-file-remotely-and-why-dont-we-store-it-on-github) |
+| 172 | [What is Terraform Taint and how is it useful?](#what-is-terraform-taint-and-how-is-it-useful) |
+| 173 | [After Terraform Plan, one production server is going to be recreated. How will you troubleshoot it?](#after-terraform-plan-one-production-server-is-going-to-be-recreated-how-will-you-troubleshoot-it) |
+| 174 | [What changes are performed when we run Terraform Init?](#what-changes-are-performed-when-we-run-terraform-init) |
+| 175 | [What is the difference between Arguments, Attributes, and Interpolation?](#what-is-the-difference-between-arguments-attributes-and-interpolation) |
+| 176 | [What are Dynamic Blocks?](#what-are-dynamic-blocks) |
+| 177 | [How do you delete a specific resource while running Terraform Apply?](#how-do-you-delete-a-specific-resource-while-running-terraform-apply) |
+| 178 | [How does Terraform resolve resource dependencies?](#how-does-terraform-resolve-resource-dependencies) |
+| 179 | [Which command should you run to inspect and sync state with reality without changing actual resources?](#which-command-should-you-run-to-inspect-and-sync-state-with-reality-without-changing-actual-resources) |
+| 180 | [How do we protect sensitive variables in Terraform?](#how-do-we-protect-sensitive-variables-in-terraform) |
+| 181 | [What happens when you remove the middle item from a list of resources managed using Count?](#what-happens-when-you-remove-the-middle-item-from-a-list-of-resources-managed-using-count) |
+| 182 | [How do you stop managing an existing S3 bucket without deleting it?](#how-do-you-stop-managing-an-existing-s3-bucket-without-deleting-it) |
+| 183 | [How do you protect a production Aurora PostgreSQL cluster against accidental deletion or replacement?](#how-do-you-protect-a-production-aurora-postgresql-cluster-against-accidental-deletion-or-replacement) |
+| 184 | [What will Terraform Refresh do?](#what-will-terraform-refresh-do) |
+| 185 | [How will you restore a Terraform state file if it gets accidentally deleted?](#how-will-you-restore-a-terraform-state-file-if-it-gets-accidentally-deleted) |
+| 186 | [What happens if you do not use DynamoDB with a state file stored remotely in S3?](#what-happens-if-you-do-not-use-dynamodb-with-a-state-file-stored-remotely-in-s3) |
 
 
 ## Core DevOps Concepts
@@ -2931,3 +2953,4 @@ Hide/Show table of contents
     - Avoid using ignore_changes just to hide the drift unless the attribute is intentionally managed outside Terraform.
 
    **[⬆ Back to Top](#table-of-contents)**
+   
