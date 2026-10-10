@@ -2956,25 +2956,22 @@ Hide/Show table of contents
    
 165. ### What is a Race Condition?
 
-A race condition occurs when two or more processes access or modify the same resource at the same time, and the final result depends on the order in which they execute.
-
-In Terraform, it can happen when multiple users run `terraform apply` simultaneously against the same state without proper state locking. This can cause conflicting changes or state inconsistencies.
+     A race condition occurs when two or more processes access or modify the same resource at the same time, and the final result depends on the order in which they execute.
+     In Terraform, it can happen when multiple users run `terraform apply` simultaneously against the same state without proper state locking. This can cause conflicting changes or state inconsistencies.
 
 **[⬆ Back to Top](#table-of-contents)**
 
 166. ### What is Terraform State Corruption?
 
-Terraform state corruption occurs when the state file becomes invalid, inconsistent, or damaged, preventing Terraform from correctly tracking infrastructure resources.
+     Terraform state corruption occurs when the state file becomes invalid, inconsistent, or damaged, preventing Terraform from correctly tracking infrastructure resources.
+    Possible causes include interrupted state writes, manual editing, concurrent operations, or storage issues.
+    To troubleshoot:
+    - Check the state file and Terraform error messages.
+    - Restore a valid backup if required.
+    - Use `terraform state pull` to inspect the current state when possible.
+    - Avoid manually modifying the state file unless absolutely necessary.
 
-Possible causes include interrupted state writes, manual editing, concurrent operations, or storage issues.
-
-To troubleshoot:
-- Check the state file and Terraform error messages.
-- Restore a valid backup if required.
-- Use `terraform state pull` to inspect the current state when possible.
-- Avoid manually modifying the state file unless absolutely necessary.
-
-For remote state, use backend versioning and backups to support recovery.
+    For remote state, use backend versioning and backups to support recovery.
 
 **[⬆ Back to Top](#table-of-contents)**
 
