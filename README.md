@@ -206,7 +206,7 @@ Hide/Show table of contents
 | 160 | [What is Infrastructure Drift?](#what-is-infrastructure-drift) |
 |     | **Terraform** |
 | 161 | [Difference between count and for_each?](#difference-between-count-and-for_each) |
-| 162 | [How to resolve Terraform State if it gets locked?](#how-to-resolve-terraform-state-if-it-gets-locked) |
+| 162 | [How to resolve Terraform State if it gets locked?](#how-to-resolve-terraform-state-if-it-gets-locked-) |
 | 163 | [Terraform apply failed halfway, How do you resolve it?](#terraform-apply-failed-halfway-how-do-you-resolve-it) |
 | 164 | [A production resource was manually changed during an emergency. Terraform now wants to revert the change. What would you do?](#a-production-resource-was-manually-changed-during-an-emergency-terraform-now-wants-to-revert-the-change-what-would-you-do) |
 | 165 | [What is a Race Condition?](#what-is-a-race-condition) |
